@@ -35,7 +35,7 @@ class myCar(object):
 	#first driving
         accelerator.go_forward(30)
         while True:
-            if 0 < distance_detector.get_distance() <= 20:
+            if 0 < distance_detector.get_distance() <= 17:
                 break
         accelerator.stop()
         time.sleep(1)
@@ -47,7 +47,7 @@ class myCar(object):
         #second driving
         accelerator.go_forward(50)
         while True:
-            if 0 < distance_detector.get_distance() <= 25:
+            if 0 < distance_detector.get_distance() <= 24:
                 break
         accelerator.stop()
         time.sleep(1)
@@ -59,7 +59,7 @@ class myCar(object):
         #third driving
         accelerator.go_forward(70)
         while True:
-            if 0 < distance_detector.get_distance() <= 30:
+            if 0 < distance_detector.get_distance() <= 33:
                 break
         accelerator.stop()    
         time.sleep(1)
