@@ -29,24 +29,26 @@ class myCar(object):
             record = self.car.line_detector.read_digital()
             if record == [0,0,0,0,0]:
                 self.car.accelerator.stop()
+	    elif record == [1,1,1,1,1]:
+                self.car.accelerator.stop()
             elif record == [1,0,0,0,0]:
-                self.car.steering.turn(60)
+                self.car.steering.turn(70)
             elif record == [0,1,0,0,0]:
-                self.car.steering.turn(75)
+                self.car.steering.turn(82)
             elif record == [0,0,1,0,0]:
                 self.car.steering.turn(90)
             elif record == [0,0,0,1,0]:
-                self.car.steering.turn(105)
+                self.car.steering.turn(98)
             elif record == [0,0,0,0,1]:
-                self.car.steering.turn(120)
+                self.car.steering.turn(110)
             elif record == [1,1,0,0,0]:
-                self.car.steering.turn(60)
+                self.car.steering.turn(70)
             elif record == [0,1,1,0,0]:
-                self.car.steering.turn(75)
+                self.car.steering.turn(82)
             elif record == [0,0,1,1,0]:
-                self.car.steering.turn(105)
+                self.car.steering.turn(98)
             elif record == [0,0,0,1,1]:
-                self.car.steering.turn(120)
+                self.car.steering.turn(110)
 
 if __name__ == "__main__":
     try:
