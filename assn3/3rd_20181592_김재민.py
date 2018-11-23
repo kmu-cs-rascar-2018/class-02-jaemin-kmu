@@ -26,7 +26,7 @@ class myCar(object):
         count = 0
         while True:
             record = self.car.line_detector.read_digital()
-            self.car.accelerator.go_forward(60)
+            self.car.accelerator.go_forward(70)
             if 0 < self.car.distance_detector.get_distance() <= 30:
                 count += 1
                 self.car.steering.turn(60)
@@ -44,7 +44,7 @@ class myCar(object):
                     if record != [0,0,0,0,0]:
                         self.car.steering.turn(125)
                         self.car.accelerator.go_forward(60)
-                        time.sleep(1.2)
+                        time.sleep(1.3)
                         break
                 while True:
                     record = self.car.line_detector.read_digital()
@@ -57,11 +57,10 @@ class myCar(object):
             elif record == [0,0,0,0,0]:
                 self.car.steering.turn(125)
                 self.car.accelerator.go_backward(45)
-                time.sleep(0.3)
+                time.sleep(0.5)
                 self.car.steering.turn(60)
                 self.car.accelerator.go_forward(45)
-                time.sleep(0.15)
-
+                time.sleep(0.2)
             elif record == [1,0,0,0,0]:
                 self.car.steering.turn(60)
                 time.sleep(0.03)
@@ -89,6 +88,10 @@ class myCar(object):
             elif record == [0,0,0,1,1]:
                 self.car.steering.turn(120)
                 time.sleep(0.03)
+            elif record == [1, 1, 1, 1, 1]:
+                self.car.steering.turn(90)
+                if count == 4:
+                    break
             elif record == [1, 1, 1, 0, 0]:
                 self.car.steering.turn(75)
                 time.sleep(0.03)
@@ -104,10 +107,6 @@ class myCar(object):
             elif record == [1, 0, 0, 1, 1]:
                 self.car.steering.turn(120)
                 time.sleep(0.03)
-	    elif record == [1, 1, 1, 1, 1]:
-                self.car.steering.turn(90)
-                if count == 4:
-                    break
                 
             else:
                 time.sleep(0.03)
